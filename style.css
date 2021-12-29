@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+
+html, body {
+    height: 100%;
+    background-color: #2b2b2b;
+}
+
+.container {
+    margin-left: 20vh;
+    margin-right: 20vh;
+    margin-top: 70px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 50px;
+    padding-bottom: 20px;
+}
+
+.banner {
+    text-align: center;
+}
+
+.banner img {
+    margin-top: 30px;
+}
+
+.span1 {
+    color: goldenrod;
+    display: inline;
+}
+
+.intro {
+    text-align: center;
+}
+
+.intro h2 {
+    padding-bottom: 10px;
+}
+
+.intro p {
+    padding-bottom: 20px
+}
+
+.intro input {
+    width: 60%;
+    background-color: rgb(180, 180, 180);
+    border: 2px solid black;
+    height: 30px;
+    border-radius: 10px;
+    color: crimson;
+    text-align: center;
+    font-weight: bold;
+}
+
+.formulario {
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 20px;
+    background-color: rgb(53, 53, 53);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.lead{
+    color: rgb(255, 187, 0);
+    margin-bottom: 20px;
+}
+
+.formbasic {
+    margin-bottom: 15px;
+    color: rgb(180, 180, 180);
+    margin-left: -130px;
+}
+
+.formbasic h1 {
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    width: 140px;
+    text-align: right;
+}
+
+.formbasic input {
+    height: 30px;
+    width: 400px;
+    border-radius: 10px;
+    border-style: none;
+    vertical-align: 4px;
+    margin-left: 15px;
+    padding-left: 10px;
+    color: crimson;
+    font-weight: bold;
+}
+
+.botao {
+    background-color: rgb(170, 67, 87);   
+    color: white;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer {
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    font-family: 'Play', sans-serif;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+}
+
+footer p {
+    padding-top: 5px;   
+}
+
+footer a{
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+}
