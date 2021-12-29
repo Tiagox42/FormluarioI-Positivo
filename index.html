@@ -17,8 +17,9 @@
         function formEnviar() {
             url = document.getElementById("enderecoapi").value;
             var a = document.querySelector("form");
-            a.setAttribute("action", url);
-            console.log(url)
+            final = `${url}/IntegracaoFormularioInteresse/SalvarDados`
+            a.setAttribute("action", final);
+            console.log(final)
         }
     </script>
 </head>
@@ -40,6 +41,7 @@
 
             <p>Insira abaixo o Endereço da Api Ficha de Inscrição, localizado no seu ambiente na aba de Configurações e
                 CRM Educacional</p>
+
 
             <input onblur="formEnviar()" type="text" name="enderecoapi" id="enderecoapi">
 
