@@ -73,7 +73,7 @@ html, body {
 .formbasic {
     margin-bottom: 15px;
     color: rgb(180, 180, 180);
-    margin-left: -130px;
+    margin-left: auto;
 }
 
 .formbasic h1 {
@@ -128,4 +128,18 @@ footer p {
 footer a{
     color: rgb(255, 187, 0);
     text-decoration: none;
+}
+
+.lista label{
+    padding: auto;
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+
+.lista input{
+    padding: auto;
+    margin: auto;
+    width: auto;
+    height: auto;
 }

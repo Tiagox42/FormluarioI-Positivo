@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+    <title>Teste Formulario Positivo</title>
+
+    <script>
+        function formEnviar() {
+            url = document.getElementById("enderecoapi").value;
+            var a = document.querySelector("form");
+            final = `${url}/IntegracaoFormularioInteresse/SalvarDados`
+            a.setAttribute("action", final);
+            console.log(final)
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="banner">
+
+        <img src="https://crmeducacional.com/wp-content/themes/portalv1.0/img/logo-crm.svg" alt="">
+        <h1 class="span1">Unofficial</h1>
+
+    </div>
+
+    <div class="container">
+
+        <div class="intro">
+
+            <h2>Testador de formulário de interese</h2>
+
+            <p>Insira abaixo o Endereço da Api Ficha de Inscrição, localizado no seu ambiente na aba de Configurações e
+                CRM Educacional</p>
+
+
+            <input onblur="formEnviar()" type="text" name="enderecoapi" id="enderecoapi">
+
+        </div>
+
+
+
+        <form class="formulario" action="" method="post" id="form" enctype="application/x-www-form-urlencoded">
+
+            <h1 class="lead">NOVO LEAD</h1>
+
+            <div class="formbasic">
+                <h1>Nome completo:</h1>
+                <input type="text" name="fullname" id="fullname" required>
+            </div>
+
+            <div class="formbasic">
+                <h1>CPF:</h1>
+                <input type="text" name="cad_cpf" id="cad_cpf" required>
+            </div>
+
+            <div class="formbasic">
+                <h1>E-mail:</h1>
+                <input type="text" name="emailaddress1" id="emailaddress1" required>
+            </div>
+
+            <div class="formbasica">
+                <h1>Tipo Interessado:</h1>
+                <input class="lista" type="radio" id="cad_tipointeressado1" name="cad_tipointeressado" value="0">
+                <label class="lista" for="cad_tipointeressado1">Responsavel</label><br>
+                <input class="lista" type="radio" id="cad_tipointeressado2" name="cad_tipointeressado" value="1">
+                <label class="lista" for="cad_tipointeressado2">Dependente</label>
+            </div>
+
+            <div class="formbasic">
+                <h1>Unidade:</h1>
+                <input type="text" name="crm_unidadeinteresse" id="crm_unidadeinteresse" required>
+            </div>
+
+            <input class="botao" type="submit" value="Enviar">
+
+
+        </form>
+
+
+
+    </div>
+
+    <footer>
+        <p>All rights reserved.</p>
+        <p>Website created by <a href="https://github.com/Tiagox42"><strong>Tiagox42</strong></a></p>
+    </footer>
+
+</body>
+
+</html>
