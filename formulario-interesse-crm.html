@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <title>.:: Agende sua visita! ::.</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a href="" class="logo"><img src="logo.png" alt="Logo" width="150"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="nav navbar-nav ml-auto">
+          <a class="nav-item nav-link active" href="https://crmeducacional.com/">Ir para o site</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-5">Agende sua visita!</h1>
+
+      <form id="formulario-interesse" name="formulario-interesse" method="POST"
+        enctype="application/x-www-form-urlencoded">
+
+        <input type="hidden" name="tipoInteressadoResp" value="0">
+        <input type="hidden" name="novoContatoResp" value="181400001">
+
+        <div class="form-group row mt-4">
+          <label class="col-sm-2 col-form-label">Nome completo do Responsável: </label>
+          <div class="col-sm-10">
+            <input name="nomeResp" placeholder="Preencha seu nome completo" size="250" maxlength="250" type="text"
+              class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Email: </label>
+          <div class="col-sm-10">
+            <input name="email" placeholder="meuemail@email.com" size="250" maxlength="250" type="email"
+              class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Telefone Celular: </label>
+          <div class="col-sm-10">
+            <input name="telefone" placeholder="(99)99999-9999" size="50" maxlength="50" type="text"
+              class="mobilephone form-control" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Unidade de Interesse</label>
+          <div class="col-sm-10">
+            <select class="custom-select mr-sm-2" name="colegioInteresse" class="campoList" required>
+              <option value="0">.:: Unidade de Interesse ::.</option>
+              <option value="2a51f022-1415-ea11-a811-000d3ac04fef">Colégio Anglo de Ubatuba</option>
+              <option value="49318606-1415-ea11-a811-000d3ac04fef">Colégio ENAU Ribeirão Pires</option>
+              <option value="86d5b814-1415-ea11-a811-000d3ac04fef">Colégio Objetivo Boiçucanga</option>
+              <option value="2351f022-1415-ea11-a811-000d3ac04fef">Colégio Objetivo Caraguatatuba</option>
+              <option value="d202201b-1415-ea11-a811-000d3ac04fef">Colégio Objetivo Ilhabela</option>
+              <option value="23b127ff-1315-ea11-a811-000d3ac04fef">Colégio Objetivo Poços de Caldas</option>
+              <option value="8a911af3-1315-ea11-a811-000d3ac04fef">Colégio Sagrado</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="clone-form">
+          <div id="clonedForm" class="cadastraMembro" style="margin-top: 25px;">
+            <h2 class="display-name">Filho
+
+              <button class="btn btn-danger pull-md-right custom-bg-color removerclonador">
+                Remover <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>
+
+              <span id="removeButton"></span>
+
+            </h2>
+
+            <input type="hidden" name="tipoInteressadoFilho" value="1">
+            <input type="hidden" name="novoContatoFilho" value="181400001">
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Nome Completo: </label>
+              <div class="col-sm-10">
+                <input name="nomeFilho" placeholder="Preencha o nome completo do filho" size="250" maxlength="250"
+                  type="text" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Data de Nascimento: </label>
+              <div class="col-sm-10">
+                <input name="dataNascimentoFilho" class="cad_datanascimento form-control" placeholder="01/01/2000"
+                  size="20" maxlength="20" type="text" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Ano de Interesse: </label>
+              <div class="col-sm-10">
+                <select id="anoInteresse" class="custom-select mr-sm-2" name="anoInteresseFilho" class="campoList"
+                  required>
+                  <option value="0">.:: Ano de Interesse ::.</option>
+                  <option value="1">2021</option>
+                  <option value="2">2022</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Segmento</label>
+              <div class="col-sm-10">
+                <select class="custom-select mr-sm-2" name="segmentoFilho" id="segmentoFilho" class="campoList"
+                  required>
+                  <option value="0">.:: Escolha o segmento ::.</option>
+                  <option value="181400000">Educação Infantil</option>
+                  <option value="181400001">Fundamental Anos Iniciais</option>
+                  <option value="181400002">Fundamental Anos Finais</option>
+                  <option value="181400003">Ensino Médio</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Série de Interesse</label>
+              <div class="col-sm-10">
+                <select class="custom-select mr-sm-2" name="serieInteresseFilho" id="serieInteresseFilho"
+                  class="campoList" required>
+                  <option value="0">.:: Escolha a série ::.</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Turno de Interesse</label>
+              <div class="col-sm-10">
+                <select class="custom-select mr-sm-2" name="turnoInteresseFilho" class="campoList" required>
+                  <option value="1">Manhã</option>
+                  <option value="2">Tarde</option>
+                </select>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <br>
+
+        <button type="button" class="btn btn-warning clonador">Adicionar outro filho</button>
+        <button id="enviar_form" class="btn btn-primary" type="submit">Enviar</button>
+        <span id="loading"></span>
+        <br><br>
+        <div id="resultado"> </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <footer>
+      <p class="text-center">&copy; Copy 2019 | CRM Educacional</p>
+    </footer>
+  </div> <!-- /container -->
+
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <script>
+
+    let token = ""
+
+    //script de função replace
+    String.prototype.replaceAll = function (searchStr, replaceStr) {
+      var str = this;
+      // no match exists in string?
+      if (str.indexOf(searchStr) === -1) {
+        // return string
+        return str;
+      }
+      // replace and remove first match, and do another recursirve search/replace
+      return (str.replace(searchStr, replaceStr)).replaceAll(searchStr, replaceStr);
+    }
+
+    $(document).ready(function () {
+      $('.cad_datanascimento').mask('00/00/0000');
+      $('.cad_cpf').mask('000.000.000-00');
+      $('.mobilephone').mask('(00)00000-0000');
+
+      $(".removerclonador:first").hide();
+
+      var elm_html = $('#clone-form').html();
+
+      $(document).on('click', '.clonador', function (e) {
+        e.preventDefault();
+        var i = $('.cadastraMembro').length;
+        var elementos = elm_html.replace(/\[[0\]]\]/g, '[' + i++ + ']');
+        $('#clone-form').append(elementos);
+
+        var elementos = elementos.replaceAll('display:none', 'display:inline');
+
+        $('.cad_datanascimento').mask('00/00/0000');
+        $('.cad_cpf').mask('000.000.000-00');
+        $('.mobilephone').mask('(00)00000-0000');
+
+        $(".removerclonador").show();
+        $(".removerclonador:first").hide();
+
+        var selects = document.querySelectorAll('select[name=segmentoFilho]');
+        var item = selects.length - 1
+        selects[item].addEventListener('change', function (e) { fillOptions(e, item) });
+
+      });
+
+      $(document).on('click', '.removerclonador', function (e) {
+        if ($('.cadastraMembro').length > 1) {
+          $(this).parent().parent().remove();
+        }
+      });
+
+      // Filtrar segmentos
+      var selects = document.querySelectorAll('select[name=segmentoFilho]');
+      selects[0].addEventListener('change', function (e) { fillOptions(e, 0) });
+
+      // Funcao para filtrar segmentos
+      function fillOptions(e, index) {
+        const optSelected = e.target.value
+        let options = []
+
+        switch (optSelected) {
+          case "181400000":
+            options = [
+              { value: "0", name: ".:: Escolha a série ::." },
+			        { value: "85a1f46f-4d16-ea11-a811-000d3ac06348", name: "Infantil I" },
+              { value: "87a1f46f-4d16-ea11-a811-000d3ac06348", name: "Infantil II" },
+              { value: "89a1f46f-4d16-ea11-a811-000d3ac06348", name: "Infantil III" },
+              { value: "8ba1f46f-4d16-ea11-a811-000d3ac06348", name: "Infantil IV" },
+              { value: "8da1f46f-4d16-ea11-a811-000d3ac06348", name: "Infantil V" },
+
+            ]
+            break;
+          case "181400001":
+            options = [
+              { value: "0", name: ".:: Escolha a série ::." },
+              { value: "97a1f46f-4d16-ea11-a811-000d3ac06348", name: "1º Ano - Anos Iniciais" },
+              { value: "99a1f46f-4d16-ea11-a811-000d3ac06348", name: "2º Ano - Anos Iniciais" },
+              { value: "9ba1f46f-4d16-ea11-a811-000d3ac06348", name: "3º Ano - Anos Iniciais" },
+              { value: "9da1f46f-4d16-ea11-a811-000d3ac06348", name: "4º Ano - Anos Iniciais" },
+              { value: "9fa1f46f-4d16-ea11-a811-000d3ac06348", name: "5º Ano - Anos Iniciais" },
+
+            ]
+            break;
+          case "181400002":
+            options = [
+             { value: "0", name: ".:: Escolha a série ::." },
+             { value: "8fa1f46f-4d16-ea11-a811-000d3ac06348", name: "6º Ano - Anos Finais" },
+             { value: "91a1f46f-4d16-ea11-a811-000d3ac06348", name: "7º Ano - Anos Finais" },
+             { value: "93a1f46f-4d16-ea11-a811-000d3ac06348", name: "8º Ano - Anos Finais" },
+             { value: "95a1f46f-4d16-ea11-a811-000d3ac06348", name: "9º Ano - Anos Finais" },
+            ]
+            break;
+          case "181400003":
+            options = [
+              { value: "0", name: ".:: Escolha a série ::." },
+              { value: "a1a1f46f-4d16-ea11-a811-000d3ac06348", name: "1ª Série - Ensino Médio" },
+              { value: "a3a1f46f-4d16-ea11-a811-000d3ac06348", name: "2ª Série - Ensino Médio" },
+              { value: "a5a1f46f-4d16-ea11-a811-000d3ac06348", name: "3ª Série - Ensino Médio" },
+
+            ]
+            break;
+          default:
+            break;
+        }
+
+        var target = document.querySelectorAll('select[name=serieInteresseFilho]');
+        target[index].options.length = 0
+
+        for (var i = 0; i < options.length; i++) {
+          var opt = options[i];
+          var el = document.createElement("option");
+          el.value = opt.value;
+          el.textContent = opt.name;
+          target[index].appendChild(el);
+        }
+
+
+      };
+
+    });
+
+    $("#enviar_form").click(function (e) {
+
+      e.preventDefault();
+
+      var dataCampos = JSON.stringify($('form#formulario-interesse').serializeArray());
+      var your_object = JSON.parse(dataCampos);
+
+      var dadosResp = {};
+      var dadosFilho = {};
+      var filhos = []
+
+      // obtenção das informações do Responsavel
+
+      var colegioInteresse = document.querySelectorAll('select[name=colegioInteresse]');
+      var nomeResp = document.querySelectorAll('input[name=nomeResp]');
+      var email = document.querySelectorAll('input[name=email]');
+      var telefone = document.querySelectorAll('input[name=telefone]');
+      var tipoInteressadoResp = document.querySelectorAll('input[name=tipoInteressadoResp]');
+      var novoContatoResp = document.querySelectorAll('input[name=novoContatoResp]');
+
+      // obtenção das informações do filho
+      var nomeFilho = document.querySelectorAll('input[name=nomeFilho]');
+      var novoContatoFilho = document.querySelectorAll('input[name=novoContatoFilho]');
+      var tipoInteressadoFilho = document.querySelectorAll('input[name=tipoInteressadoFilho]');
+      var dataNascimentoFilho = document.querySelectorAll('input[name=dataNascimentoFilho]');
+      var anoInteresseFilho = document.querySelectorAll('select[name=anoInteresseFilho]');
+      var segmentoFilho = document.querySelectorAll('select[name=segmentoFilho]');
+      var serieInteresseFilho = document.querySelectorAll('select[name=serieInteresseFilho]');
+      var turnoInteresseFilho = document.querySelectorAll('select[name=turnoInteresseFilho]');
+
+      var team = ""
+      switch ($(colegioInteresse[0]).find('option:selected').val()) {
+        case '2a51f022-1415-ea11-a811-000d3ac04fef':
+          team = "Colégio Anglo Ubatuba";
+          break;
+        case '49318606-1415-ea11-a811-000d3ac04fef':
+          team = "Colégio ENAU Ribeirão Pires";
+          break;
+        case '86d5b814-1415-ea11-a811-000d3ac04fef':
+          team = "Colégio Objetivo Boiçucanga";
+          break;
+        case '2351f022-1415-ea11-a811-000d3ac04fef':
+          team = "Colégio Objetivo Caraguatatuba";
+          break;
+        case 'd202201b-1415-ea11-a811-000d3ac04fef':
+          team = "Colégio Objetivo Ilhabela";
+          break;
+        case '23b127ff-1315-ea11-a811-000d3ac04fef':
+          team = "Colégio Objetivo Poços de Caldas";
+          break;
+        case '8a911af3-1315-ea11-a811-000d3ac04fef':
+          team = "Colégio Sagrado";
+          break;
+
+        default:
+          team = "prosper";
+          break;
+      }
+
+      // validação das informações do responsável
+      if (!valDataResp()) return
+      // validação das informações dos filhos
+      if (!valDataChildren()) return
+
+      //setando dados do Resp
+      dadosResp['fullname'] = $(nomeResp[0]).val();
+      dadosResp['emailaddress1'] = $(email[0]).val();
+      dadosResp['mobilephone'] = $(telefone[0]).val();
+      dadosResp['cad_tipointeressado'] = $(tipoInteressadoResp[0]).val();
+      dadosResp['col_novocontato'] = $(novoContatoResp[0]).val();
+      dadosResp['crm_unidadeinteresse'] = $(colegioInteresse[0]).find('option:selected').val();
+      //dadosResp['equipe'] = team;
+      //Para obter o texto do combo da unidade de interesse, comente a linha de cima e descomente a linha de baixo
+      dadosResp['equipe'] = $(colegioInteresse[0]).find('option:selected').text();
+      dadosResp['col_filho'] = 0;
+
+      //setando dados dos filhos
+      for (var i = 0; i < nomeFilho.length; i++) {
+        dadosFilho['fullname'] = $(nomeFilho[i]).val();
+        dadosFilho['col_novocontato'] = $(novoContatoFilho[i]).val();
+        dadosFilho['cad_tipointeressado'] = $(tipoInteressadoFilho[0]).val();
+        dadosFilho['cad_datanascimento'] = $(dataNascimentoFilho[i]).val();
+        dadosFilho['col_anointeresse'] = $(anoInteresseFilho[i]).find('option:selected').text();
+        dadosFilho['col_segmento'] = $(segmentoFilho[i]).find('option:selected').val();
+        dadosFilho['crm_servicoeducacionalinteresse'] = $(serieInteresseFilho[i]).find('option:selected').val();
+        dadosFilho['col_turnointeresse'] = $(turnoInteresseFilho[i]).find('option:selected').val();
+        dadosFilho['crm_unidadeinteresse'] = $(colegioInteresse[0]).find('option:selected').val();
+        //dadosFilho['equipe'] = team;
+        //Para obter o texto do combo da unidade de interesse, comente a linha de cima e descomente a linha de baixo
+        dadosFilho['equipe'] = $(colegioInteresse[0]).find('option:selected').text();
+        dadosFilho['col_filho'] = 1;
+        let chieldData = Object.assign({}, dadosFilho);
+        filhos.push(chieldData)
+      }
+
+      // console.log('dadosResp', dadosResp)
+      // console.log('filhos', filhos)
+
+      sendData(dadosResp, filhos)
+
+      function valDataResp() {
+
+        qtdPalavras = $(nomeResp[0]).val().split(' ')
+        if (qtdPalavras.length <= 1) {
+          $("#resultado").html("<div class='alert alert-danger' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>ERRO:</strong> O nome do responsável deve possuir nome e sobrenome.</div>");
+          return false
+        }
+
+        var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        if (!filtro.test($(email[0]).val())) {
+          $("#resultado").html("<div class='alert alert-danger' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>ERRO:</strong> Email inválido.</div>");
+          return false
+        }
+
+        if ($(colegioInteresse[0]).find('option:selected').val() === "0") {
+          $("#resultado").html("<div class='alert alert-danger' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>ERRO:</strong> Favor informar a unidade de interesse.</div>");
+          return false
+        }
+
+        return true
+
+      }
+
+      function valDataChildren() {
+
+        for (var i = 0; i < nomeFilho.length; i++) {
+          qtdPalavras = $(nomeFilho[i]).val().split(' ')
+          var index = i + 1
+
+          if (qtdPalavras.length <= 1) {
+            $("#resultado").html("<div class='alert alert-danger' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>ERRO:</strong> O nome do " + index + "º filho deve possuir nome e sobrenome.</div>");
+            return false
+          }
+
+          var date = $(dataNascimentoFilho[i]).val();
+          var newDate = date.substring(6, 10) + '-' + date.substring(3, 5) + '-' + date.substring(0, 2)
+          var date = moment(newDate);
+          if (!date.isValid()) {
+            $("#resultado").html("<div class='alert alert-danger' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>ERRO:</strong> Data de nascimento do " + index + "º filho esta inválida.</div>");
+            return false
+          }
+
+          if ($(anoInteresseFilho[i]).find('option:selected').val() === "0") {
+            $("#resultado").html("<div class='alert alert-danger' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>ERRO:</strong> Favor informar o ano de interesse do " + index + "º filho.</div>");
+            return false
+          }
+
+          if ($(segmentoFilho[i]).find('option:selected').val() === "0") {
+            $("#resultado").html("<div class='alert alert-danger' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>ERRO:</strong> Favor informar o segmento de interesse do " + index + "º filho.</div>");
+            return false
+          }
+
+          if ($(serieInteresseFilho[i]).find('option:selected').val() === "0") {
+            $("#resultado").html("<div class='alert alert-danger' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>ERRO:</strong> Favor informar a série de interesse do " + index + "º filho.</div>");
+            return false
+          }
+
+        }
+        return true
+      }
+
+
+      async function sendData(dadosResp, filhos) {
+
+        let result;
+        var jsonParseDadosResp = $.param(dadosResp);
+
+        $(':button').prop('disabled', true);
+        $("#loading").html("<img width='30' src='loading.gif'/>");
+
+        try {
+          result = await $.ajax({
+            url: "https://colegiopositivoapi.crmeducacional.com/api/IntegracaoFormularioInteresse/SalvarDados",
+            type: 'POST',
+            cache: false,
+            contentType: 'application/x-www-form-urlencoded',
+            data: jsonParseDadosResp,
+          });
+          //console.log('dadosResp', dadosResp)
+
+          const Idinteressado = result.Idinteressado
+
+
+          for (var i = 0; i < filhos.length; i++) {
+            var data = filhos[i]
+            data['cad_responsavel'] = Idinteressado;
+            var jsonParseDadosFilho = $.param(data);
+
+            result = await $.ajax({
+              url: "https://colegiopositivoapi.crmeducacional.com/api/IntegracaoFormularioInteresse/SalvarDados",
+              type: 'post',
+              cache: false,
+              contentType: 'application/x-www-form-urlencoded',
+              data: jsonParseDadosFilho,
+            });
+            //console.log('dadosFilho', data)
+          }
+
+          $("#resultado").html("<div class='alert alert-success' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>Informações enviadas com sucesso.</strong></div>");
+          $("#formulario-interesse").trigger("reset");
+
+          var formChild = $('.cadastraMembro')
+          for (var i = 1; i < formChild.length; i++) {
+            formChild[i].remove();
+          }
+
+          $("#loading").html("");
+          $(':button').prop('disabled', false);
+
+          return result;
+        } catch (error) {
+          console.error(error);
+          $("#resultado").html("<div class='alert alert-danger' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>ERRO:</strong> Não conseguimos realizar seu envio, por favor, verificar se os dados estão preenchidos corretamente.</div>");
+          $("#loading").html("");
+          $(':button').prop('disabled', false);
+        }
+      }
+
+      return false;
+
+    });
+
+  </script>
+
+</body>
+
+</html>
